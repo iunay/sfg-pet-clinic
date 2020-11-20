@@ -1,7 +1,6 @@
 package com.petclinicwebapp.sfgpetclinic.models;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 public class Pet {
 
