@@ -1,6 +1,6 @@
 package com.petclinicwebapp.sfgpetclinic.models;
 
-public class Specialty extends BaseEntity{
+public class Speciality extends BaseEntity{
 
     private String description;
 
