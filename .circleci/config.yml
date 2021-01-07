@@ -3,7 +3,8 @@ version: # Orb 'circleci/maven@0.0.12' resolved to 'circleci/maven@0.0.12'
   jobs:
     build:
       docker:
-        - image: circleci/openjdk:11-jdk
+        - image: "circleci/openjdk:11-jdk"
+
         working_directory: ~/repo
 
         environment:
