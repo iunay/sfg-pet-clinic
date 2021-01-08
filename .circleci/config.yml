@@ -1,37 +1,26 @@
-version: # Orb 'circleci/maven@0.0.12' resolved to 'circleci/maven@0.0.12'
-  version: 2
-  jobs:
-    build:
-      docker:
-        - image: circleci/openjdk:11-jdk
-        working_directory: ~/repo
 
-        environment:
-          MAVEN_OPTS: -Xmx3200m
-      steps:
-        - checkout
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/openjdk:11-jdk
 
-        - restore_cache: #download and cache dependencies
-            keys: v1-dependencies-{{ checksum "pom.xml" }}
-            # fallback to using the latest cache if no exact match is found
-            -v1-dependencies-
+    working_directory: ~/repo
+    environment:
+      MAVEN_OPTS: -Xmx3200m
+    steps:
+      - checkout
 
-        -run: mvn install -DskipTests
 
-          - run: mvn depencendency:go-offline
-          - save_cache:
-              paths:
-                - ~/.m2
-              key: maven-{{ checksum "pom.xml" }}
-
-  -run: mvn integration-test
-    # Original config.yml file:
-    # version: 2.1
-    #
-    # orbs:
-    #   maven: circleci/maven@0.0.12
-    #
-    # workflows:
-    #   maven_test:
-    #     jobs:
-  #       - maven/test # checkout, build, test, and upload test results
+-restore_cache: #download and cache dependencies- restore_cache: #download and cache dependencies
+  keys: v1-dependencies-{{ checksum "pom.xml" }}
+  key1: v1-dependencies-{{ checksum "pom.xml" }}
+  # fallback to using the latest cache if no exact match is found-run:
+  key2: -v1-dependencies-
+  -run1: mvn install -DskipTests
+  -run2: mvn depencendency:go-offline
+  -save_cache:
+    paths:
+      - ~/.m2
+    key: maven-{{ checksum "pom.xml" }}
+    -run: mvn integration-test
